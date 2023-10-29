@@ -1,8 +1,20 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import swal from "sweetalert";
 
 const Nav = () => {
+const{user,logOut}=useContext(AuthContext)
 
-
+const handleLogout=()=>{
+  logOut()
+  .then(()=>{
+    swal('you are logged out')
+  })
+  .catch((err)=>{
+     console.log(err)
+  })
+}
 
 
 
@@ -12,7 +24,16 @@ const links=<div className="flex gap-6">
 
     <NavLink to="/recipies" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-rose-950 underline" : ""  } >  Recipies </NavLink>
 
-    <NavLink to="/login" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-rose-950 underline" : ""  } >  Log In </NavLink>
+   {
+    user? <div className="flex gap-6">
+
+<NavLink to="/dashboard" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-rose-950 underline" : ""  } >  DashBoard </NavLink>
+
+
+       <NavLink onClick={handleLogout}  className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-rose-950 underline" : ""  } > <button > Log Out</button> </NavLink>
+    </div>:
+      <NavLink to='/login' className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-rose-950 underline" : ""  } >  Log In </NavLink>
+   }
 
 </div>
 
@@ -39,7 +60,14 @@ const links=<div className="flex gap-6">
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    {
+      user?<div >
+          <p>{user?.email}</p>
+      </div>:
+      <div>
+        <p> User</p>
+      </div>
+    }
   </div>
 </div>
         </div>

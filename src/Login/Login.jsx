@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiFillEyeInvisible,AiFillEye } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../Provider/AuthProvider";
+import swal from "sweetalert";
 
 
 const Login = () => {
 const [show,setShow]=useState(true)
-
+const {logIn}=useContext(AuthContext)
 
 const handleLogin=e=>{
     e.preventDefault()
@@ -15,7 +17,15 @@ const handleLogin=e=>{
     const email=form.email.value;
     const password=form.password.value;
     if(/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/.test(password)){
-        console.log(email,password)
+        // console.log(email,password)
+        logIn(email,password)
+        .then(res=>{
+            console.log(res.user)
+            swal("success","you are successfully logged in","success")
+        })
+        .catch(err=>{
+            swal("error",err.message,'error')
+        })
     }
     else{
       toast(" password will  must be 6 charecter ,one later will be capital and one later will be special charecter")
