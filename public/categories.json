@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "categories":"Birthday Cake",
+        "img": "https://i.ibb.co/bsLXXfp/download.jpg"
+    },
+    {
+        "id": 2,
+        "categories": "Special Cake",
+        "img": "https://i.ibb.co/W3hyNXc/images.jpg"
+    },
+    {
+        "id": 3,
+        "categories": "Cup Cake",
+        "img": "https://i.ibb.co/1TgZJFk/download.jpg"
+    },
+    {
+        "id": 4,
+        "categories": "Customize Cake",
+        "img": "https://i.ibb.co/rvbgwtw/download.jpg"
+    },
+    {
+        "id": 5,
+        "categories":"Chocolate Cake",
+        "img": "https://i.ibb.co/bgTTjrz/download.jpg"
+    },
+    {
+        "id": 6,
+        "categories": "Sponge Cake",
+        "img": "https://i.ibb.co/FW7d1kf/download.jpg"
+    }
+]
