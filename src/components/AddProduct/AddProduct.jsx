@@ -1,3 +1,5 @@
+// import { data } from "autoprefixer";
+import axios from "axios";
 
 const AddProduct = () => {
 
@@ -14,7 +16,23 @@ const AddProduct = () => {
             name,category,price,description,photo
         }
 
-        console.log(product)
+        // console.log(product)
+        // fetch("http://localhost:5002/products",{
+        //      method:"POST",
+        //      headers:{
+        //         "Content-Type":"application/json"
+
+        //      },
+        //      body:JSON.stringify(product)
+        // })
+
+        // .then(res=>res.json())
+        // .then(data=>{
+        //     console.log(data)
+        // })
+
+        axios.post("http://localhost:5002/products",product)
+        .then(res=>console.log(res.data))
     }
 
 

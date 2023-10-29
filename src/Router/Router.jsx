@@ -8,6 +8,7 @@ import AddProduct from "../components/AddProduct/AddProduct";
 import ManageProduct from "../components/ManangeProduct/ManageProduct";
 import AddCategory from "../components/AddCategory/AddCategory";
 import MAnageCategory from "../components/ManageCategory/MAnageCategory";
+import ProvateRoute from "../Private/ProvateRoute";
 
 const Router = createBrowserRouter([
     {
@@ -42,7 +43,9 @@ const Router = createBrowserRouter([
             },
             {
                 path:"/dashboard/addProduct",
-                element:<AddProduct></AddProduct>
+                element:<ProvateRoute>
+                                 <AddProduct></AddProduct>
+                        </ProvateRoute>,
             },
             {
                 path:"/dashboard/manageProduct",

@@ -16,10 +16,12 @@ const [loading,setLoading]=useState(true)
   };
 
   const logIn=(email,password)=>{
+    setLoading(true)
      return signInWithEmailAndPassword(auth,email,password)
   }
 
   const logOut=()=>{
+    setLoading(true)
     return signOut(auth)
   }
 
@@ -42,7 +44,7 @@ const [loading,setLoading]=useState(true)
     loading,
     logIn,
     logOut,
-    
+
   };
   return (
          <AuthContext.Provider value={authInfo}>
