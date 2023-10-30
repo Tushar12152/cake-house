@@ -45,7 +45,7 @@ const ManageProduct = () => {
             {
                 data?
                 
-                <div>
+                <div className="grid gap-6">
                       {
                    data?.map(product=><ManageProductDetail
                     key={product._id}

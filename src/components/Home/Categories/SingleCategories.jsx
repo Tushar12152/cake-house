@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 const SingleCategories = ({ category }) => {
   const { img, categories } = category;
   return (
-    <div>
+    <div  data-aos="flip-left"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000">
       <div className="card w-96 bg-pink-100 shadow-xl">
         <figure>
           <img

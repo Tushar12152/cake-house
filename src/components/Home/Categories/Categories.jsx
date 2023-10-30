@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import SingleCategories from "./SingleCategories";
+import { Link } from "react-router-dom";
 
 
 const Categories = () => {
 const [Categoris,setCategory]=useState([])
+// console.log(Categoris)
 
 useEffect(()=>{
     const loadData=async()=>{
@@ -26,9 +28,11 @@ useEffect(()=>{
                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-[90%] mx-auto">
 
                    {
-                    Categoris.map(category=><SingleCategories key={category.id}
+                    Categoris.map(category=><Link to={`/recipies/${category.categories}`}  key={category.id}>
+                    <SingleCategories
                        category={category}
-                    ></SingleCategories>)
+                    ></SingleCategories>
+                    </Link>)
                    }
                    </div>
                </div>

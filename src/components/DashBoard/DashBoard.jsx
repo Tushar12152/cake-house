@@ -10,7 +10,7 @@ const DashBoard = () => {
 
 
               <div className="grid grid-cols-12 w-11/12 gap-2 mx-auto mt-5 ">
-                <div className="bg-red-100 col-span-3 h-screen flex flex-col items-center gap-6">
+                <div className="bg-red-100 col-span-3 min-h-screen flex flex-col items-center gap-6">
 
                 <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? " p-2 my-2 rounded-xl  border border-red-900 w-full  " : "p-2 my-2 rounded-xl  border border-red-900 w-full"  } to='/dashboard'>Home</NavLink>
 
@@ -28,7 +28,7 @@ const DashBoard = () => {
                  
                 
                 </div>
-                <div className="bg-green-100 col-span-9 h-screen ">
+                <div className="bg-green-100 col-span-9 min-h-screen ">
                 
                   <Outlet></Outlet>
                 

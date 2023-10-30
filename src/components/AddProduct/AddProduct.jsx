@@ -1,5 +1,6 @@
 // import { data } from "autoprefixer";
 import axios from "axios";
+import swal from "sweetalert";
 
 const AddProduct = () => {
 
@@ -32,7 +33,11 @@ const AddProduct = () => {
         // })
 
         axios.post("http://localhost:5002/products",product)
-        .then(res=>console.log(res.data))
+        .then(res=>{
+             if(res.data.insertedId){
+              swal("success", "your Product is successfully added")
+             }
+        })
     }
 
 

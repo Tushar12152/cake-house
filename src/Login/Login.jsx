@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../Provider/AuthProvider";
 import swal from "sweetalert";
+import axios from "axios";
 
 
 const Login = () => {
@@ -19,9 +20,14 @@ const handleLogin=e=>{
     if(/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/.test(password)){
         // console.log(email,password)
         logIn(email,password)
-        .then(res=>{
-            console.log(res.user)
+        .then(()=>{
+           
             swal("success","you are successfully logged in","success")
+
+            axios.post("http://localhost:5002/jwt",{email},{withCredentials:true})
+            .then(res=>{
+              console.log(res.data);
+            })
         })
         .catch(err=>{
             swal("error",err.message,'error')
@@ -65,7 +71,7 @@ const handleLogin=e=>{
                 <button className="btn bg-gradient-to-r from-pink-200 to-red-500">Login</button>
               </div>
 
-              <p className="text-center">Have No Account? <Link to="/register"><span className="text-pink-400 ">Register</span></Link></p>
+              {/* <p className="text-center">Have No Account? <Link to="/register"><span className="text-pink-400 ">Register</span></Link></p> */}
             </form>
           </div>
         
